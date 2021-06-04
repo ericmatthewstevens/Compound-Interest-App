@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Tomcat_EE_App" target="1.8" />
+      <module name="Tomcat_EE_App" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

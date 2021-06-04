@@ -1,5 +1,3 @@
-<%@ page import="com.example.Tomcat_EE_App.TimeOfDay" %>
-<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -8,31 +6,32 @@
 
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-<div class="bg-blue-500">
+<body class="bg-blue-500">
     <div class="bg-white mx-auto text-center w-1/2 py-5 shadow-xl rounded-3xl my-96 max-w-2xl">
         <h2 class="text-4xl font-semibold border-b pb-2 mx-6">Compound Interest Calculator</h2>
-        <h3 class="bg-red-300 text-red-900 font-semibold text-xl w-80">dasdfasedqewdf a weq ewdfqadsfaesdfadsfa</h3>
+
+        <h3 class="bg-red-300 text-red-900 font-semibold text-xl w-80 rounded-lg my-2 mx-auto">${error}</h3>
+
         <form action="/" method="post">
 
-            <div class="grid grid-cols-2 gap-4">
-                <label for="principal-amount" class="text-xl flex items-center">Principal Amount:</label>
-                <input class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg focus:outline-none focus:ring-2" id="principal-amount" type="number" name="principalamount">
+            <div class="grid grid-cols-2 gap-4 my-5 mx-8">
+                <label for="principleAmount" class="text-xl flex items-center">Principle Amount:</label>
+                <input class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg focus:outline-none focus:ring-2" name="principleAmount" id="principleAmount" type="number" value="${principleAmount}">
 
-                <label for="interest" class="text-xl flex items-center">Interest Percentage:</label>
-                <input class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg focus:outline-none focus:ring-2" id="interest" type="number" name="interest">
+                <label for="interestPercentage" class="text-xl flex items-center">Interest Percentage:</label>
+                <input class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg focus:outline-none focus:ring-2" name="interestPercentage" id="interestPercentage" min="1" max="100" type="number" value="${interestPercentage}">
 
                 <label for="years" class="text-xl flex items-center"># of Years:</label>
-                <input class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg focus:outline-none focus:ring-2" id="years" type="number" name="years">
+                <input class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg focus:outline-none focus:ring-2" name="years" id="years" min="1" type="number" value="${years}">
 
-                <label for="compoundperiod" class="text-xl flex items-center">Times per Year:</label>
-                <input class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg focus:outline-none focus:ring-2" id="compoundperiod" type="number" name="compoundperiod">
+                <label for="compoundingPeriod" class="text-xl flex items-center">Times per Year:</label>
+                <input class="w-full p-1 border-2 placeholder-blue-800 border-blue-700 appearance-none rounded-lg focus:outline-none focus:ring-2" name="compoundingPeriod" id="compoundingPeriod" min="1" max="12" type="number" value="${compoundingPeriod}">
 
             </div>
 
             <button class="bg-blue-300 text-xl font-semibold px-4 py-1 rounded-lg hover:bg-blue-800 hover:text-white" type="submit">Calculate</button>
 
-            <p class="text-3xl font-mono text-green-600">Result" ${result}</p>
+            <p class="text-3xl font-mono text-green-600">Result: $${result}</p>
 
         </form>
     </div>
