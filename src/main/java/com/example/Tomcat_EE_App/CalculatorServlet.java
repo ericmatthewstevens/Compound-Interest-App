@@ -20,6 +20,9 @@ public class CalculatorServlet extends HttpServlet {
         String years = request.getParameter("years");
         String compoundingPeriod = request.getParameter("compoundingPeriod");
 
+        Float.parseFloat(principleAmount);
+        Float.parseFloat(interestPercentage);
+
         String error;
 
         if (principleAmount == null || interestPercentage == null || years == null ||
@@ -30,7 +33,7 @@ public class CalculatorServlet extends HttpServlet {
             request.setAttribute("error", error);
         } else {
 
-            double result = Utils.calculateCompoundInterest(Double.parseDouble(principleAmount), (Double.parseDouble(interestPercentage) / 100), Integer.parseInt(years), Integer.parseInt(compoundingPeriod));
+            float result = Utils.calculateCompoundInterest(Float.parseFloat(principleAmount), (Float.parseFloat(interestPercentage) / 100), Integer.parseInt(years), Integer.parseInt(compoundingPeriod));
 
             request.setAttribute("result", result);
         }
